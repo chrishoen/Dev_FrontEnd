@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{747EB4B9-F42D-4354-9D5D-4BC583D3DCA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{4A97D42F-2B73-4DC0-88FB-BC4C8306C192}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{E7B87957-58D6-406D-929C-AE5C9D119B7E}"
+	ProjectSection(SolutionItems) = preProject
+		Files\aaa_copy_files.bat = Files\aaa_copy_files.bat
+		Test\bin\Release\Test.exe = Test\bin\Release\Test.exe
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +17,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{747EB4B9-F42D-4354-9D5D-4BC583D3DCA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{747EB4B9-F42D-4354-9D5D-4BC583D3DCA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{747EB4B9-F42D-4354-9D5D-4BC583D3DCA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{747EB4B9-F42D-4354-9D5D-4BC583D3DCA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A97D42F-2B73-4DC0-88FB-BC4C8306C192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A97D42F-2B73-4DC0-88FB-BC4C8306C192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A97D42F-2B73-4DC0-88FB-BC4C8306C192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A97D42F-2B73-4DC0-88FB-BC4C8306C192}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
