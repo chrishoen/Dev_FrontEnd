@@ -5,12 +5,6 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{4A97D42F-2B73-4DC0-88FB-BC4C8306C192}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{E7B87957-58D6-406D-929C-AE5C9D119B7E}"
-	ProjectSection(SolutionItems) = preProject
-		Files\aaa_copy_files.bat = Files\aaa_copy_files.bat
-		Test\bin\Release\Test.exe = Test\bin\Release\Test.exe
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{0E4BCD46-4614-4D54-9C0B-6D370B3F3684}"
 EndProject
 Global
