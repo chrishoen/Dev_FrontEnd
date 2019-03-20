@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
+using System.IO;
+
 using Ris;
 
 namespace MainApp
@@ -13,69 +13,97 @@ namespace MainApp
     class MyCmdLineExec : BaseCmdLineExec
     {
         //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+        // Members.
+
+        FrontEnd mFrontEnd;
+
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+        // Constructor.
 
         public MyCmdLineExec()
         {
-            reset();
+            mFrontEnd = new FrontEnd();
+
+            BackEnd.initializeBackEnd();
         }
 
-        public override void reset()
+        ~MyCmdLineExec()
         {
+            BackEnd.finalizeBackEnd();
         }
 
         //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+        // Execute console input command lines.
 
         public override void execute(CmdLineCmd aCmd)
         {
-            if (aCmd.isCmd("GO1")) executeGo1(aCmd);
-            if (aCmd.isCmd("GO2")) executeGo2(aCmd);
-            if (aCmd.isCmd("GO3")) executeGo3(aCmd);
-            if (aCmd.isCmd("GO4")) executeGo4(aCmd);
-            if (aCmd.isCmd("GO5")) executeGo5(aCmd);
+            if (aCmd.isCmd("Get"))        OnGetStatus(aCmd);
+
+            if (aCmd.isCmd("GO1")) OnGo1(aCmd);
+            if (aCmd.isCmd("GO2")) OnGo2(aCmd);
+            if (aCmd.isCmd("GO3")) OnGo3(aCmd);
+            if (aCmd.isCmd("GO4")) OnGo4(aCmd);
+            if (aCmd.isCmd("GO5")) OnGo5(aCmd);
         }
 
         //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
 
-        public void executeGo1(CmdLineCmd aCmd)
+        public void OnGetStatus(CmdLineCmd aCmd)
         {
-            String tProcessName = @"C:\RedInc\SDSAT\Bin\PrintView2.exe";
-
-            if (File.Exists(tProcessName))
-            {
-                if (Process.GetProcessesByName(tProcessName).Length == 0)
-                {
-                    Console.WriteLine("PrintView2.exe starting");
-                    Process.Start(tProcessName);
-                }
-                else
-                {
-                    Console.WriteLine("PrintView2.exe already started");
-                }
-            }
-            else
-            {
-                Console.WriteLine("PrintView2.exe not found");
-            }
+            mFrontEnd.doGetStatus();
         }
 
+
+        //**********************************************************************
+        //**********************************************************************
         //**********************************************************************
 
-        public void executeGo2(CmdLineCmd aCmd)
+        public void OnGo1(CmdLineCmd aCmd)
         {
-            Prn.print(0,"TESTING");
+            aCmd.setArgDefault(1, "aaaaaaa");
+            aCmd.setArgDefault(2, 111);
+            aCmd.setArgDefault(3, 22.22);
+
+            Console.WriteLine("{0} {1} {2,5}", aCmd.argString(1), aCmd.argInt(2), aCmd.argDouble(3));
         }
 
         //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
 
-        public void executeGo3(CmdLineCmd aCmd)
+        public void OnGo2(CmdLineCmd aCmd)
         {
-            Console.WriteLine("PrintView2.exe stopping");
-            Prn.print(0,"PRINTVIEW_SHUTDOWN");
+            aCmd.setArgDefault(1, "aaaaaaa");
+            aCmd.setArgDefault(2, 111);
+            aCmd.setArgDefault(3, 22.22);
+
+            Console.WriteLine("{0} {1} {2,5}", aCmd.argString(1), aCmd.argInt(2), aCmd.argDouble(3));
         }
 
         //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
 
-        public void executeGo4(CmdLineCmd aCmd)
+        public void OnGo3(CmdLineCmd aCmd)
+        {
+            aCmd.setArgDefault(1, "aaaaaaa");
+
+            Console.WriteLine("GO3{0,-10}GO3", aCmd.argString(1));
+        }
+
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+
+        public void OnGo4(CmdLineCmd aCmd)
         {
             aCmd.setArgDefault(1, 101);
 
@@ -84,14 +112,17 @@ namespace MainApp
             Console.WriteLine("{0}", tN);
         }
 
-
+        //**********************************************************************
+        //**********************************************************************
         //**********************************************************************
 
-        public void executeGo5(CmdLineCmd aCmd)
+        public void OnGo5(CmdLineCmd aCmd)
         {
-//          DasComm.Settings.writeToXmlFile(@"C:\Alpha\Settings\DasCommSettings.xml");
+            aCmd.setArgDefault(1, 0x20);
+
+            UInt64 tN = aCmd.argUInt64(1);
+
+            Console.WriteLine("0x{0,16:X}", tN);
         }
-
-
     }
 }
