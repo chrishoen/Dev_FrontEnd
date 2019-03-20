@@ -82,7 +82,7 @@ namespace MainApp
 
         [DllImport(cDLLName)]
         public static extern void getMyString(
-            [MarshalAs(UnmanagedType.LPStr)]String aString);
+            [MarshalAs(UnmanagedType.LPStr)]StringBuilder aString);
 
     };
 }

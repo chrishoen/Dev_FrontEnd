@@ -49,9 +49,7 @@ namespace MainApp
 
         public void doGetString()
         {
-            String tString = null;
-            char[] tBytes = new char[200];
-            tString = new String(tBytes);
+            StringBuilder tString = new StringBuilder(100);
 
             BackEnd.getMyString(tString);
 
