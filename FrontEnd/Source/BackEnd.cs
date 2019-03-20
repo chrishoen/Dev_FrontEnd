@@ -60,11 +60,29 @@ namespace MainApp
         //**********************************************************************
         //**********************************************************************
         //**********************************************************************
-        // Get the current status. This is passed in a status record which
-        // is filled with the current status. The record must first be
-        // created by the caller. 
+        // Get the current status.
 
         [DllImport(cDLLName)]
         public static extern int getBackEndStatus();
+
+
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+        // Set a string.
+
+        [DllImport(cDLLName)]
+        public static extern void setMyString(
+            [MarshalAs(UnmanagedType.LPStr)]String aString = null);
+
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+        // Get a string.
+
+        [DllImport(cDLLName)]
+        public static extern void getMyString(
+            [MarshalAs(UnmanagedType.LPStr)]String aString);
+
     };
 }

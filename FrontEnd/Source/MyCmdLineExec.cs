@@ -43,7 +43,9 @@ namespace MainApp
 
         public override void execute(CmdLineCmd aCmd)
         {
-            if (aCmd.isCmd("Get"))        OnGetStatus(aCmd);
+            if (aCmd.isCmd("Status")) OnGetStatus(aCmd);
+            if (aCmd.isCmd("Set"))    OnSetString(aCmd);
+            if (aCmd.isCmd("Get"))    OnGetString(aCmd);
 
             if (aCmd.isCmd("GO1")) OnGo1(aCmd);
             if (aCmd.isCmd("GO2")) OnGo2(aCmd);
@@ -59,6 +61,25 @@ namespace MainApp
         public void OnGetStatus(CmdLineCmd aCmd)
         {
             mFrontEnd.doGetStatus();
+        }
+
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+
+        public void OnSetString(CmdLineCmd aCmd)
+        {
+            aCmd.setArgDefault(1, "bbbbbbbb");
+            mFrontEnd.doSetString(aCmd.argString(1));
+        }
+
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+
+        public void OnGetString(CmdLineCmd aCmd)
+        {
+            mFrontEnd.doGetString();
         }
 
 

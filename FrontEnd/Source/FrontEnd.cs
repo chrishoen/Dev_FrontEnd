@@ -31,6 +31,33 @@ namespace MainApp
             Console.WriteLine("BackEndStatus     {0}", tStatus);
         }
 
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+        // Call the back end function.
+
+        public void doSetString(String aString)
+        {
+            BackEnd.setMyString(aString);
+        }
+
+
+        //**********************************************************************
+        //**********************************************************************
+        //**********************************************************************
+        // Call the back end function.
+
+        public void doGetString()
+        {
+            String tString = null;
+            char[] tBytes = new char[200];
+            tString = new String(tBytes);
+
+            BackEnd.getMyString(tString);
+
+            Console.WriteLine("MyString          {0}", tString);
+        }
+
     };
 
 }
