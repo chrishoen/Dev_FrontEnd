@@ -53,8 +53,8 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RisLib">
-      <HintPath>..\..\..\..\MyTools\MyLib\csharp\RisLib.dll</HintPath>
+    <Reference Include="RisLibCs">
+      <HintPath>..\..\..\..\MyTools\MyLib\csharp\RisLibCs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
